@@ -41,7 +41,7 @@ class WorkoutUpdateView(LoginRequiredMixin, UpdateView):
 
 class WorkoutDeleteView(LoginRequiredMixin, DeleteView):
     model = Workout
-    template_name = "workouts/workout_form.html"
+    template_name = "workouts/workout_confirm_delete.html"
     success_url = reverse_lazy("workouts:workout-list")
 
 @login_required

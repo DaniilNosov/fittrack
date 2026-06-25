@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}- Athletes{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Athletes</h1>
+</div>
+<div class="row">
+    {% for athlete in athletes %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ athlete.username }}</h5>
+                    <p class="card-text text-muted">
+                        {{ athlete.first_name }} {{ athlete.last_name }}
+                    </p>
+                    {% if athlete.fitness_level %}
+                        <span class="badge bg-dark">{{ athlete.fitness_level }}</span>
+                    {% endif %}
+                    <div class="mt-2">
+                        <a href="{% url 'users:athlete-detail' athlete.pk %}" class="btn btn-sm btn-outline-dark">
+                            View Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">No athletes yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
