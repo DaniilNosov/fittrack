@@ -12,6 +12,13 @@ class WorkoutListView(LoginRequiredMixin, ListView):
     context_object_name = "workouts"
     template_name = "workouts/workout_list.html"
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search = self.request.GET.get("search", "")
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+        return queryset
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         visits = self.request.session.get("visits", 0)
