@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 class FitnessLevel(models.Model):
     name = models.CharField(max_length=255)
 
@@ -9,7 +10,6 @@ class FitnessLevel(models.Model):
 
     def __str__(self):
         return self.name
-
 
 
 class Athlete(AbstractUser):
@@ -21,7 +21,6 @@ class Athlete(AbstractUser):
         related_name="athletes",
     )
     bio = models.TextField(blank=True)
-
 
     def __str__(self):
         return self.username

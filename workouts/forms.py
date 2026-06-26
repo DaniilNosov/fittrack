@@ -15,8 +15,6 @@ class WorkoutForm(forms.ModelForm):
             "participants",
         ]
         widgets = {
-            "scheduled_date": forms.DateInput(
-                attrs={"type": "date"}
-            ),
+            "scheduled_date": forms.DateInput(attrs={"type": "date"}),
             "participants": forms.CheckboxSelectMultiple(),
         }

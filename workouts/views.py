@@ -2,10 +2,17 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView,
+)
 
 from workouts.forms import WorkoutForm
 from workouts.models import Workout
+
 
 class WorkoutListView(LoginRequiredMixin, ListView):
     model = Workout
@@ -25,6 +32,7 @@ class WorkoutListView(LoginRequiredMixin, ListView):
         self.request.session["visits"] = visits + 1
         context["visits"] = visits + 1
         return context
+
 
 class WorkoutDetailView(LoginRequiredMixin, DetailView):
     model = Workout
@@ -50,6 +58,7 @@ class WorkoutDeleteView(LoginRequiredMixin, DeleteView):
     model = Workout
     template_name = "workouts/workout_confirm_delete.html"
     success_url = reverse_lazy("workouts:workout-list")
+
 
 @login_required
 def toggle_workout_completion(request, pk):
