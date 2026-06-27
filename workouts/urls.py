@@ -9,5 +9,5 @@ urlpatterns = [
     path("create/", views.WorkoutCreateView.as_view(), name="workout-create"),
     path("<int:pk>/update/", views.WorkoutUpdateView.as_view(), name="workout-update"),
     path("<int:pk>/delete/", views.WorkoutDeleteView.as_view(), name="workout-delete"),
-    path("<int:pk>/toggle/", views.toggle_workout_completion, name="workout-toggle"),
+    path("<int:pk>/toggle/", views.WorkoutToggleView.as_view(), name="workout-toggle"),
 ]
