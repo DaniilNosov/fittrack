@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "fittrack-2spm.onrender.com"]
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
